@@ -11,6 +11,7 @@ class RandomGIFVC: UIViewController {
 
     @IBOutlet var lblLoadingMessage: UILabel!
     @IBOutlet var imgGIF: UIImageView!
+    @IBOutlet var lblErrorMessage: UILabel!
     @IBOutlet var btnRandomGIF: UIButton!
     
     private let viewModel = RandomGIFVM()
@@ -50,6 +51,7 @@ extension RandomGIFVC {
             self.imgGIF.stopAnimating()
             self.imgGIF.animationImages = nil
             self.imgGIF.image = nil
+            self.lblErrorMessage.isHidden = true
         }
         
         viewModel.randomWord.bind { [weak self] randomWord in
@@ -62,7 +64,8 @@ extension RandomGIFVC {
             if let gifData = gifData {
                 self.imgGIF.loadGIF(gifData: gifData)
             } else {
-                self.imgGIF.image = UIImage(named: "no-image")
+                self.imgGIF.image = UIImage(named: "alert")
+                self.lblErrorMessage.isHidden = false
             }
         }
     }
