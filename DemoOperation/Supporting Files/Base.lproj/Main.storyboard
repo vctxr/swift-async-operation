@@ -74,6 +74,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Random GIF" id="KXn-Ku-bf2">
+                        <barButtonItem key="leftBarButtonItem" image="key.fill" catalog="system" id="DQA-qR-EWf">
+                            <color key="tintColor" systemColor="systemIndigoColor"/>
+                            <connections>
+                                <action selector="didTapAPIKey:" destination="BYZ-38-t0r" id="9st-Vy-3nx"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="cRm-4k-f8Z">
                             <color key="tintColor" systemColor="systemIndigoColor"/>
                             <connections>
@@ -112,6 +118,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="key.fill" catalog="system" width="83" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

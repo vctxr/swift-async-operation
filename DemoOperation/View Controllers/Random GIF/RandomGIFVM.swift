@@ -39,6 +39,19 @@ class RandomGIFVM {
         attempts = 3
         queue.cancelAllOperations()
     }
+    
+    func saveAPIKey(apiKey: String) {
+        let data = Data(apiKey.utf8)
+        if KeyChain.save(key: .apiKey, data: data) != 0 {
+            // Error saving to key chain
+            print("Error")
+        }
+    }
+    
+    func getAPIKey() -> String? {
+        guard let data = KeyChain.load(key: .apiKey) else { return nil }
+        return String(decoding: data, as: UTF8.self)
+    }
 }
 
 // MARK: - Private Implementation

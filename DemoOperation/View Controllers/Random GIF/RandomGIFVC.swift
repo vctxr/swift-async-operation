@@ -26,6 +26,15 @@ class RandomGIFVC: UIViewController {
         viewModel.fetchRandomGIF()
     }
     
+    @IBAction func didTapAPIKey(_ sender: UIBarButtonItem) {
+        presentAlertWithField(title: "Enter your Giphy API Key 🔑",
+                              text: viewModel.getAPIKey(),
+                              placeholder: "Giphy API Key") { [weak self] apiKey in
+            guard let self = self else { return }
+            self.viewModel.saveAPIKey(apiKey: apiKey)
+        }
+    }
+    
     @IBAction func didTapCancel(_ sender: UIBarButtonItem) {
         viewModel.cancel()
     }

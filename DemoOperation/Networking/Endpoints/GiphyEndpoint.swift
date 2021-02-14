@@ -25,7 +25,7 @@ extension GiphyEndpoint {
     }
     
     var urlParameters: [URLQueryItem] {
-        guard let data = KeyChain.load(key: "API_KEY") else { return [] }
+        guard let data = KeyChain.load(key: .apiKey) else { return [] }
         let apiKey = String(decoding: data, as: UTF8.self)
         var urlQueryItems = [URLQueryItem(name: "api_key", value: apiKey)]
         
